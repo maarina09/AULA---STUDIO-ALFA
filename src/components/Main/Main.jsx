@@ -1,7 +1,29 @@
 import "./Main.css";
-import Foguete from "../../assets/imgs/icon-foquete.png"
-import Celular from "../../assets/imgs/icon-celular.png"
+import Foguete from "../../assets/imgs/icon-foquete.png";
+import Celular from "../../assets/imgs/icon-celular.png";
 import Componente from "../../assets/imgs/icon-componente.jpg";
+import ServicoCard from "../ServicoCard/ServicoCard";
+
+const servicos = [
+  {
+    id: 1,
+    icone: Componente,
+    titulo: "Design de interface",
+    descricao: "Telas claras, pensadas para o usuário.",
+  },
+  {
+    id: 2,
+    icone: Celular,
+    titulo: "Responsividade",
+    descricao: "O mesmo site em qualquer tela.",
+  },
+  {
+    id: 3,
+    icone: Foguete,
+    titulo: "Performance",
+    descricao: "Páginas leves que carregam rápido.",
+  },
+];
 
 function Main() {
   return (
@@ -26,23 +48,14 @@ function Main() {
       <section className="servico">
         <h2>Nossos serviços</h2>
         <div className="servicos-grid">
-          <div className="card">
-            <img src={Componente} alt="" />
-            <h3>Design de interface</h3>
-            <p>Telas claras, pensadas para o usuário.</p>
-          </div>
-
-          <div className="card">
-            <img src={Celular} alt="" />
-            <h3>Responsividade</h3>
-            <p>O mesmo site em qualquer tela.</p>
-          </div>
-
-          <div className="card">
-            <img src={Foguete} alt="" />
-            <h3>Performance</h3>
-            <p>Páginas leves que carregam rápido.</p>
-          </div>
+          {servicos.map((servico) => (
+            <ServicoCard
+              key={servico.id}
+              icone={servico.icone}
+              titulo={servico.titulo}
+              descricao={servico.descricao}
+            />
+          ))}
         </div>
       </section>
     </main>
